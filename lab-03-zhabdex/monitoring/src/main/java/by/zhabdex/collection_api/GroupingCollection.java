@@ -1,4 +1,4 @@
-package by.khrapkoalex.zhabdex.collection_api;
+package by.zhabdex.collection_api;
 
 import java.util.*;
 import java.util.function.Function;
