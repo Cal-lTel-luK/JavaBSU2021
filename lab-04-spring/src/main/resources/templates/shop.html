@@ -3,6 +3,34 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8">
+    <style>
+        table {
+            border-collapse:collapse
+        }
+        td, tr {
+            padding: 5px;
+            border: solid black 1px;
+        }
+        a:link {
+            color: red;
+        }
+
+        /* visited link */
+        a:visited {
+            color: green;
+        }
+
+        /* mouse over link */
+        a:hover {
+            color: hotpink;
+        }
+
+        /* selected link */
+        a:active {
+            color: blue;
+        }
+    </style>
+
     <title>Shop</title>
 </head>
 <body>
@@ -15,7 +43,6 @@
     <br>
     <label th:text="'Рейтинг: ' + |${shop.getShopRating()}|"/>
     <br>
-
     <table>
         <tr>
             <td>Название насоса</td>
@@ -29,6 +56,11 @@
                 ${pump.pumpRating}"/>
         </tr>
     </table>
+</div>
+<div>
+    <a href="/shop/list">
+        Назад к списку
+    </a> <br>
 </div>
 </body>
 </html>

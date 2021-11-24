@@ -3,6 +3,33 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8">
+    <style>
+        table {
+            border-collapse:collapse
+        }
+        td, tr {
+            padding: 5px;
+            border: solid black 1px;
+        }
+        a:link {
+            color: red;
+        }
+
+        /* visited link */
+        a:visited {
+            color: green;
+        }
+
+        /* mouse over link */
+        a:hover {
+            color: hotpink;
+        }
+
+        /* selected link */
+        a:active {
+            color: blue;
+        }
+    </style>
     <title>Catalog of shops</title>
 </head>
 <body>
@@ -19,6 +46,11 @@
         <td th:text="${shop.getShopRating()}"/>
     </tr>
 </table>
+<div>
+    <a href="/">
+        Назад
+    </a> <br>
+</div>
 
 </body>
 </html>
