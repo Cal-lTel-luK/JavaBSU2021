@@ -14,7 +14,7 @@
     </tr>
     <tr th:each="shop : ${shopRepository}">
         <td>
-            <a th:text="${shop.getShopName()}" th:href="@{'/shop?shop_id=' + ${shop.getShopId()}}"/>
+            <a th:text="${shop.getShopName()}" th:href="@{'/shop?shopId=' + ${shop.getShopId()}}"/>
         </td>
         <td th:text="${shop.getShopRating()}"/>
     </tr>

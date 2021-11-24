@@ -15,7 +15,7 @@
     </tr>
     <tr th:each="pump : ${pumpRepository}">
         <td>
-            <a th:text="${pump.getPumpName()}" th:href="@{'/pump?pump_id=' + ${pump.getPumpId()}}"/>
+            <a th:text="${pump.getPumpName()}" th:href="@{'/pump?pumpId=' + ${pump.getPumpId()}}"/>
         </td>
         <td th:text="${pump.getPrice()}"/>
         <td th:text="${pump.getPumpRating()}"/>
@@ -25,7 +25,7 @@
 <div>
     Поиск по названию:
     <form action="" method="get">
-        <input type="text" name="name" value="">
+        <input type="text" name="findName" value="">
         <br>
         Сортировка по:
         <br>

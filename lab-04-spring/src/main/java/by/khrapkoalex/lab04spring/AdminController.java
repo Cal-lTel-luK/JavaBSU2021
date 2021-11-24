@@ -3,9 +3,7 @@ package by.khrapkoalex.lab04spring;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -37,13 +35,15 @@ public class AdminController {
         return "redirect:/pump/list";
     }
 
-    @GetMapping("/shop/{shopId}/edit")
-    public String getEditShop(Model model, @PathVariable Integer shopId) {
-        return "edit_shop";
+    @GetMapping("/connect")
+    public String connectPumpAndShop() {
+        return "connect";
     }
 
-//    @PostMapping(value = "/shop/{shopId}/edit")
-//    public String postEditShop(Model model, ...) {
-//        return "redirect:/shop/list";
-//    }
+    @PostMapping(value = "/connect", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    public String connectPumpAndShop(String pumpName, String shopName) {
+
+        catalogService.connectPumpAndShop(pumpName, shopName);
+        return "redirect:/";
+    }
 }

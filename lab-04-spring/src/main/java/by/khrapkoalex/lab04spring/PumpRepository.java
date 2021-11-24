@@ -10,4 +10,5 @@ public interface PumpRepository extends CrudRepository<Pump, Integer> {
     Iterable<Pump> findAllByPumpNameContainsOrderByPriceDesc(String name);
 
     Pump findPumpByPumpId(Integer pumpId);
+    Pump findPumpByPumpName(String pumpName);
 }

@@ -42,5 +42,13 @@
         </a>
         <br>
     </div>
+
+    <div sec:authorize="hasRole('ADMIN')">
+        <a href="/admin/connect">
+            Привезти насос в магазин
+        </a>
+        <br>
+    </div>
+
 </body>
 </html>

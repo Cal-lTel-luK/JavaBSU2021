@@ -11,9 +11,9 @@
 </div>
 
 <div th:if="${shop} != null">
-    <label th:text="${'Название: ' + ${shop.getShopName()}}"/>
+    <label th:text="'Название: ' + |${shop.getShopName()}|"/>
     <br>
-    <label th:text="${'Рейтинг: ' + ${shop.getShopRating()}}"/>
+    <label th:text="'Рейтинг: ' + |${shop.getShopRating()}|"/>
     <br>
 
     <table>
@@ -27,11 +27,6 @@
             <td th:text="${pump.getPrice()}"/>
             <td th:text="${pump.getPumpRating()} == null ? 'Not enough info' :
                 ${pump.pumpRating}"/>
-                        <td sec:authorize="hasRole('ADMIN')">
-                            <form th:action="@{'/admin/pump/' + ${pump.getPumpId()} +  '/edit'}" method="GET">
-                                <input type="submit" value="Edit"/>
-                            </form>
-                        </td>
         </tr>
     </table>
 </div>
