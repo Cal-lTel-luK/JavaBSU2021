@@ -42,9 +42,7 @@ public class CatalogService {
             return;
         }
         pump.addShop(shop);
-        shop.addPump(pump);
         pumpRepository.save(pump);
-        shopRepository.save(shop);
     }
 
     Iterable<Shop> getShops() {

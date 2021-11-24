@@ -18,7 +18,8 @@
     <br>
     <label th:text="'Рейтинг: ' + |${pump.getPumpRating()}|"/>
     <br>
-
+    <label th:text="'Кол-во магазинов:  ' + |${pump.getShops().size()}|" />
+    <br>
     <table>
         <tr>
             <td>Название</td>

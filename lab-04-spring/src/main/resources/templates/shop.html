@@ -23,8 +23,8 @@
             <td>Рейтинг</td>
         </tr>
         <tr th:each="pump : ${shop.getPumps()}">
-            <td th:text="${pump.getPumpName()}"/>
-            <td th:text="${pump.getPrice()}"/>
+            <td th:text="${pump.getPumpName()}"></td>
+            <td th:text="${pump.getPrice()}"></td>
             <td th:text="${pump.getPumpRating()} == null ? 'Not enough info' :
                 ${pump.pumpRating}"/>
         </tr>

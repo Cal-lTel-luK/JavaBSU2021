@@ -13,6 +13,7 @@ import java.util.Set;
 @Data
 @Entity
 @NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Shop {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
