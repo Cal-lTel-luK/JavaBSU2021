@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table {
+            border-collapse:collapse
+        }
+        td, tr {
+            padding: 5px;
+            border: solid black 1px;
+        }
+        a:link {
+            color: red;
+        }
+
+        /* visited link */
+        a:visited {
+            color: green;
+        }
+
+        /* mouse over link */
+        a:hover {
+            color: hotpink;
+        }
+
+        /* selected link */
+        a:active {
+            color: blue;
+        }
+    </style>
+    <title>Catalog of pumps</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <td>Название</td>
+        <td>Цена</td>
+        <td>Рейтинг</td>
+    </tr>
+    <tr th:each="pump : ${pumpRepository}">
+        <td>
+            <a th:text="${pump.getPumpName()}" th:href="@{'/pump?pumpId=' + ${pump.getPumpId()}}"/>
+        </td>
+        <td th:text="${pump.getPrice()}"/>
+        <td th:text="${pump.getPumpRating()}"/>
+    </tr>
+</table>
+
+<div>
+    Поиск по названию:
+    <form action="" method="get">
+        <input type="text" name="findName" value="">
+        <br>
+        Сортировка по:
+        <br>
+        <input type="radio" name="sortingMode" value="">
+        Названию насоса
+        <br>
+        <input type="radio" name="sortingMode" value="asc">
+        В порядке возрастания цены
+        <br>
+        <input type="radio" name="sortingMode" value="desc">
+        В порядке убывания цены
+        <br>
+        <input type="submit" value="Готово">
+    </form>
+</div>
+
+<div>
+    <a href="/">
+        Назад
+    </a> <br>
+</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        a:link {
+            color: red;
+        }
+
+        /* visited link */
+        a:visited {
+            color: green;
+        }
+
+        /* mouse over link */
+        a:hover {
+            color: hotpink;
+        }
+
+        /* selected link */
+        a:active {
+            color: blue;
+        }
+    </style>
+    <title>Start Page</title>
+</head>
+<body>
+
+<div sec:authorize="isAnonymous()">
+    <a href="/login">Войти</a>
+    <br>
+</div>
+<div sec:authorize="!isAnonymous()">
+    <a href="/logout">Выйти</a>
+    <br>
+</div>
+
+<div>
+    <a href="/pump/list">
+        Список насосов
+    </a>
+    <br>
+
+</div>
+<a href="/shop/list">
+        Список магазинов
+    </a>
+    <br>
+</div>
+
+<div sec:authorize="hasRole('ADMIN')">
+    <a href="/admin/shop/add">
+        Добавить магазин
+    </a>
+    <br>
+</div>
+
+<div sec:authorize="hasRole('ADMIN')">
+    <a href="/admin/pump/add">
+        Добавить новый насос
+    </a>
+    <br>
+</div>
+
+<div sec:authorize="hasRole('ADMIN')">
+    <a href="/admin/connect">
+        Привезти насос в магазин
+    </a>
+    <br>
+</div>
+
+</body>
+</html>

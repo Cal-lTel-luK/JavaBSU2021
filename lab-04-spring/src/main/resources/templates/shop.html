@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table {
+            border-collapse:collapse
+        }
+        td, tr {
+            padding: 5px;
+            border: solid black 1px;
+        }
+        a:link {
+            color: red;
+        }
+
+        /* visited link */
+        a:visited {
+            color: green;
+        }
+
+        /* mouse over link */
+        a:hover {
+            color: hotpink;
+        }
+
+        /* selected link */
+        a:active {
+            color: blue;
+        }
+    </style>
+
+    <title>Shop</title>
+</head>
+<body>
+<div th:if="${shop} == null">
+    Shop not exist!
+</div>
+
+<div th:if="${shop} != null">
+    <label th:text="'Название: ' + |${shop.getShopName()}|"/>
+    <br>
+    <label th:text="'Рейтинг: ' + |${shop.getShopRating()}|"/>
+    <br>
+    <table>
+        <tr>
+            <td>Название насоса</td>
+            <td>Цена</td>
+            <td>Рейтинг</td>
+        </tr>
+        <tr th:each="pump : ${shop.getPumps()}">
+            <td th:text="${pump.getPumpName()}"></td>
+            <td th:text="${pump.getPrice()}"></td>
+            <td th:text="${pump.getPumpRating()} == null ? 'Not enough info' :
+                ${pump.pumpRating}"/>
+        </tr>
+    </table>
+</div>
+<div>
+    <a href="/shop/list">
+        Назад к списку
+    </a> <br>
+</div>
+</body>
+</html>

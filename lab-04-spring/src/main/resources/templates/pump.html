@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table {
+            border-collapse:collapse
+        }
+        td, tr {
+            padding: 5px;
+            border: solid black 1px;
+        }
+        a:link {
+            color: red;
+        }
+
+        /* visited link */
+        a:visited {
+            color: green;
+        }
+
+        /* mouse over link */
+        a:hover {
+            color: hotpink;
+        }
+
+        /* selected link */
+        a:active {
+            color: blue;
+        }
+    </style>
+
+    <title>Pump</title>
+</head>
+<body>
+
+<div th:if="${pump} == null">
+    Pump not exist!
+</div>
+
+<div th:if="${pump} != null">
+    <label th:text="'Название: ' + |${pump.getPumpName()}|"/>
+    <br>
+    <label th:text="'Цена: ' + |${pump.getPrice()}|"/>
+    <br>
+    <label th:text="'Рейтинг: ' + |${pump.getPumpRating()}|"/>
+    <br>
+    <label th:text="'Кол-во магазинов:  ' + |${pump.getShops().size()}|" />
+    <br>
+    <table>
+        <tr>
+            <td>Название</td>
+            <td>Рейтинг магазина</td>
+        </tr>
+        <tr th:each="shop : ${pump.getShops()}">
+            <td th:text="${shop.getShopName()}"/>
+            <td th:text="${shop.getShopRating()} == null ? 'Not enough info' :
+                ${shop.getShopRating()}"/>
+        </tr>
+    </table>
+</div>
+
+<div>
+    <a href="/pump/list">
+        Назад к списку
+    </a> <br>
+</div>
+
+</body>
+</html>
